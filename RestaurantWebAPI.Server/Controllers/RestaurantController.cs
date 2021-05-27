@@ -80,7 +80,7 @@ namespace RestaurantWebAPI.Server.Controllers
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant);
-            return CreatedAtAction(nameof(Restaurant), new { id = restaurant.Id }, restaurant);
+            return CreatedAtAction(nameof(GetRestaurant), new { id = restaurant.Id }, restaurant);
         }
 
         // DELETE: api/Restaurant/5
