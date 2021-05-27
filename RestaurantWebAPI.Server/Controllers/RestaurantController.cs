@@ -79,7 +79,8 @@ namespace RestaurantWebAPI.Server.Controllers
             _context.Restaurants.Add(restaurant);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant);
+            //return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant);
+            return CreatedAtAction(nameof(Restaurant), new { id = restaurant.Id }, restaurant);
         }
 
         // DELETE: api/Restaurant/5
@@ -104,5 +105,8 @@ namespace RestaurantWebAPI.Server.Controllers
         }
     }
 }
+
+
+
 
 
