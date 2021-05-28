@@ -22,7 +22,7 @@ namespace RestaurantWebAPI.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RestaurantContext>(options =>
-                options.UseSqlite("RestaurantList"));
+                options.UseSqlite("Data Source = Restaurant.db"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -31,8 +31,10 @@ namespace RestaurantWebAPI.Server
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RestaurantContext restaurantContext)
         {
+            restaurantContext.Database.EnsureDeleted();
+            restaurantContext.Database.EnsureCreated();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
