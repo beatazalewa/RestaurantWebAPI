@@ -20,5 +20,6 @@ namespace RestaurantWebAPI.Server.Models
         [Range(0, 5)]
         [Display(Name = "Review:")]
         public int Review { get; set; }
+        public string Secret { get; set; }
     }
 }
