@@ -22,7 +22,7 @@ namespace RestaurantWebAPI.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RestaurantContext>(options =>
-                options.UseInMemoryDatabase("RestaurantList"));
+                options.UseSqlite("RestaurantList"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
