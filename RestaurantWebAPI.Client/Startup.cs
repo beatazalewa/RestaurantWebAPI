@@ -28,6 +28,7 @@ namespace RestaurantWebAPI.Client
         {
 
             services.AddControllers();
+            services.AddHttpClient();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestaurantWebAPI.Client", Version = "v1" });
