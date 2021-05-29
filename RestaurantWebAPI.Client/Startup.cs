@@ -53,7 +53,7 @@ namespace RestaurantWebAPI.Client
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=GetByIdAsync}/{id?}");
             });
         }
     }
